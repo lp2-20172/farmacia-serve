@@ -1,12 +1,12 @@
 from django.contrib import admin
-from catalogo.models import Producto
-from catalogo.models import UnidadMed
-from catalogo.models import Categoria
-from catalogo.models import Venta, ShoppingCart, Cliente
-from catalogo.models import Almacen
-from catalogo.models import Proveedor
-from catalogo.models import Compra
-from catalogo.models import DetalleCompra
+from catalogo.models_raiz import Producto
+from catalogo.models_raiz import UnidadMed
+from catalogo.models.categoria import Categoria
+from catalogo.models_raiz import Venta, ShoppingCart, Cliente
+from catalogo.models_raiz import Almacen
+from catalogo.models_raiz import Proveedor
+from catalogo.models_raiz import Compra
+from catalogo.models_raiz import DetalleCompra
 # Register your models here.
 
 

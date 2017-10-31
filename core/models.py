@@ -6,10 +6,12 @@ from django.contrib.auth.models import AbstractUser
 
 class Person(models.Model):
 
-    first_name = models.CharField(max_length=60, blank=True, null=True)
-    last_name = models.CharField(max_length=60, blank=True, null=True)
+    nombre = models.CharField(max_length=60, blank=True, null=True)
+    apellido = models.CharField(max_length=60, blank=True, null=True)
     email = models.EmailField(max_length=60, blank=True, null=True)
-
+    estado = models.CharField(max_length=10, blank=True, null=True)
+    codigo = models.CharField(max_length=10)
+    lugar = models.CharField(max_length=30, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 

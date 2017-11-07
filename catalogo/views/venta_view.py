@@ -1,4 +1,4 @@
-from ..models.producto import Producto
+from ..models.venta import Venta
 from rest_framework import serializers, viewsets
 from rest_framework import permissions
 from django.db.models import Q
@@ -6,22 +6,22 @@ from operator import __or__ as OR
 from functools import reduce
 
 
-class ProductoSerializer(serializers.ModelSerializer):
+class VentaSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Producto
+        model = Venta
         fields = '__all__'
         #fields = ('id', 'username', 'email', 'is_staff')
 
 
-class ProductoViewSet(viewsets.ModelViewSet):
-    queryset = Producto.objects.all()
-    serializer_class = ProductoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class VentaViewSet(viewsets.ModelViewSet):
+    queryset = Venta.objects.all()
+    serializer_class = VentaSerializer
+    #permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         query = self.request.query_params.get('query', '')
-        queryall = (Q(nombre__icontains=query),
+        queryall = (Q(nro_doc__icontains=query),
                     )
         queryset = self.queryset.filter(reduce(OR, queryall))
         return queryset

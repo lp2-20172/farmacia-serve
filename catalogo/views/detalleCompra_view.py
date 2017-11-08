@@ -17,11 +17,11 @@ class DetalleCompraSerializer(serializers.ModelSerializer):
 class DetalleCompraViewSet(viewsets.ModelViewSet):
     queryset = DetalleCompra.objects.all()
     serializer_class = DetalleCompraSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         query = self.request.query_params.get('query', '')
-        queryall = (Q(cantidad__icontains=query),
+        queryall = (Q(nro_doc__icontains=query),
                     )
         queryset = self.queryset.filter(reduce(OR, queryall))
         return queryset

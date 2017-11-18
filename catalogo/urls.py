@@ -10,6 +10,7 @@ from .views.proveedor_view import ProveedorViewSet
 from .views.detalleCompra_view import DetalleCompraViewSet
 from .views.almacen_view import AlmacenViewSet
 from .views.cliente_view import ClienteViewSet
+from .views.unidadMed_view import UnidadMedViewSet
 
 
 router = routers.DefaultRouter()
@@ -22,6 +23,8 @@ router.register(r'proveedor', ProveedorViewSet)
 router.register(r'detalleCompra', DetalleCompraViewSet)
 router.register(r'almacenes', AlmacenViewSet)
 router.register(r'clientes', ClienteViewSet)
+router.register(r'unidadMeds', UnidadMedViewSet)
+
 
 urlpatterns = [
     url(r'^', include(router.urls)),
